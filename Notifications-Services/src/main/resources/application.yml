@@ -1,0 +1,15 @@
+server:
+  port: 8484
+  
+  
+
+spring:
+  application:
+    name: Notifications-Services  
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka    
