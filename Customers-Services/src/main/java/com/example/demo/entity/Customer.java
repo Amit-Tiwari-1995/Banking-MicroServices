@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,8 +34,11 @@ public class Customer {
 	private String lastName;
 	@Column(name = "email_address")
 	private String emailAddress;
+	
 	@Column(name = "date_of_birth")
-	private LocalDate dateOfBirth;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+	private Date dateOfBirth;
+	
 	@Column(name = "mobile_number")
 	private String mobileNumber;
 	@Column(name = "branch_id")
@@ -42,9 +47,13 @@ public class Customer {
 	private String customerCategory;
 	@Column(name = "aadhaar_number")
 	private String aadhaarNumber;
+
 	@Column(name = "created_date")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private Date createdDate;
+	
 	@Column(name = "updated_date")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private Date updatedDate;
 
 }
